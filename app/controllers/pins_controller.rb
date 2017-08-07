@@ -1,5 +1,6 @@
 class PinsController < ApplicationController
-  before_action :find_pin, only: [:show, :edit, :update, :destroy]
+  before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
+  # before_action :athenticate_user!, except: [:index]
 
   def index
     @pins = Pin.all.order("created_at DESC")
@@ -10,13 +11,18 @@ class PinsController < ApplicationController
 
   def new
     @pin = Pin.new
+    @user = current_user
   end
+  
 
   def create
+
     @pin = Pin.new(pin_params)
+    @pin.user_id = current_user.id
 
     if @pin.save
-      redirect_to @pin, notice: "Pin created successfully!"
+      # redirect_to pin_url(@pin)
+      redirect_to pin_path(current_user, @pin), notice: "Pin created successfully!"
     else
       render 'new'
     end
@@ -35,14 +41,19 @@ class PinsController < ApplicationController
 
     def destroy
       @pin.destroy
-      redirect_to root_path
+      redirect_to pins_path
+    end
+
+    def upvote
+      @pin.upvote_by current_user
+      redirect_to "/pins/#{@pin.id}"
     end
   
 
   private
 
   def pin_params
-    params.require(:pin).permit(:title, :description)
+    params.require(:pin).permit(:title, :description, :image)
   end
 
   def find_pin
