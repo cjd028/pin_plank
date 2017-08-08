@@ -1,0 +1,7 @@
+<h3>User Profile</h3>
+<%= @user.email %>
+<%= @user.name %>
+<h5>User's pins:</h5>
+<% @user.pins.each do |pin| %>
+  <li><%= link_to pin.title, pin %></li>
+<% end %>

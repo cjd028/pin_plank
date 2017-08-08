@@ -1,0 +1,14 @@
+
+<h1>Welcome to Pin Plank!</h1>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:q, "Search user with email:") %>
+  <%= text_field_tag(:search_email) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<p><%= link_to "Sign In",  login_path %></p>
+<p><%= link_to "Sign Up", new_user_path %></p>
+
+
+

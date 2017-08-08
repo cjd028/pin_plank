@@ -35,6 +35,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml', '~> 5.0', '>= 5.0.2'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'simple_form', '~> 3.5'
+gem 'paperclip', '~> 5.1'
+gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+gem 'figaro'
+gem 'faker'
+gem 'acts_as_votable', '~> 0.10.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

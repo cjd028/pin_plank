@@ -1,0 +1,10 @@
+<% if @user.nil? %>
+  <h3>Sorry. There is no user under that email.</h3>
+<% else %>
+  <ul>
+    <h3>One user is found under that email:</h3>
+    <li>Email: <%= @user.email %></li>
+    <li>Name: <%= @user.name %></li>
+    <%= link_to 'View User Profile', @user %>
+  </ul>
+<% end %>

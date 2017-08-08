@@ -1,0 +1,49 @@
+
+<h1>User Page</h1>
+
+<table>
+  
+  <%if Pin.find_by_user_id(current_user.id).nil?%>
+    <p> You have no postings </p>
+    <p><%= link_to "New Pin", new_pin_path %></p>
+    <p><%= link_to "Sign Out", logout_path, method: :delete %></p>
+    
+
+  <%else%>
+
+     <tr>
+      <th><u>Title</u></th>
+      <th><u>Image</u></th>
+      <th><u>Description</u></th>
+
+     </tr>
+
+      <% Pin.where(user_id: current_user.id).each do |p| %>
+
+      <tr>
+
+        <th>
+        <%= link_to p.title, p %>
+       
+        </th>
+
+        <th>
+        <%= link_to image_tag p.image.url(:medium), method: :pin %>  
+        </th> 
+      
+        <th>
+        <%= p.description %>
+        </th>
+
+      </tr>
+
+   <% end %>
+
+    <p><%= link_to "New Pin", new_pin_path %></p>
+    <p><%= link_to "Sign Out", logout_path, method: :delete %></p>
+
+</table>
+
+<% end %>
+
+

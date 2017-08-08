@@ -1,0 +1,20 @@
+!!! 5
+%html
+%head
+  %script{:crossorigin => "anonymous", :integrity => "sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=", :src => "http://code.jquery.com/jquery-3.2.1.min.js"}  
+  %title Pin Board
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  = csrf_meta_tags
+
+  %body
+    %nav.navbar.navbar-default
+      .container
+        .navbar-brand= link_to "Pin Plank", root_path
+
+    .container
+      - flash.each do |name, msg|
+        = content_tag :div, msg, class: "alert alert-info"
+      = yield
+ 

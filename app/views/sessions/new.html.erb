@@ -1,0 +1,64 @@
+<h1>Sign In</h1>
+
+ <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+<%= link_to "Back to main", root_path %>
+
+<%= form_for :session, url: login_path do |form| %>
+<div class ="form-session">
+  <div class="text-field">
+    <%= form.label :email %>
+    <%= form.text_field :email, type: 'email' %>
+  </div>
+  <div class="password-field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div class="submit-field">
+    <%= form.submit "Log In", class: "btn btn-primary" %>
+</div>
+<% end %>
+
+<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+
+
+
+     <!--  <div class="logmod__tab lgm-2">
+        <div class="logmod__heading">
+          <span class="logmod__heading-subtitle">Enter your email and password <strong>to sign in</strong></span>
+        </div> 
+
+        <div class="logmod__form">
+          <form accept-charset="utf-8" action="#" class="simform">
+            <div class="sminputs">
+              <div class="input full">
+                <label class="string optional" for="user-name">Email*</label>
+                <input class="string optional" maxlength="255" id="user-email" placeholder="Email" type="email" size="50" />
+              </div>
+            </div>
+          </div>
+
+            <div class="sminputs">
+              <div class="input full">
+                <label class="string optional" for="user-pw">Password *</label>
+                <input class="string optional" maxlength="255" id="user-pw" placeholder="Password" type="password" size="50" />
+              </div>
+            </div>
+            
+         
+        
+        <div class="logmod__alter">
+          <div class="logmod__alter-container">
+            <a href="#" class="connect facebook">
+              <div class="connect__icon">
+                <i class="fa fa-facebook"></i>
+              </div>
+              <div class="connect__context">
+                <span>Sign in with <strong>Facebook</strong></span>
+              </div>
+            </a>
+          </div> -->
+      
