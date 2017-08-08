@@ -22,7 +22,7 @@ class PinsController < ApplicationController
 
     if @pin.save
       # redirect_to pin_url(@pin)
-      redirect_to pin_path(current_user, @pin), notice: "Pin created successfully!"
+      redirect_to pin_path(@pin), notice: "Pin created successfully!"
     else
       render 'new'
     end
@@ -41,7 +41,7 @@ class PinsController < ApplicationController
 
     def destroy
       @pin.destroy
-      redirect_to pins_path
+      render json: {status: "success"}
     end
 
     def upvote

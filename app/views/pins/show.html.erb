@@ -22,14 +22,17 @@
           </div>
           <div class="col-md-6">
             <div class="btn-group pull-right">
+              <%if logged_in? %>
               <%= link_to "Back", pins_path, class: "btn btn-default" %>
+              <%else %>
+              <%= link_to "Back to main page", root_path, class: "btn btn-default" %>
+              <%end%>
               <%= link_to like_pin_path(@pin), method: :put, class: "btn btn-default" do %>
                 <span class="glyphicon glyphicon-heart">
                   <%= @pin.get_upvotes.size %>
                 </span>
               <% end %>
               <%= link_to "Edit", edit_pin_path(@pin), class: "btn btn-default" %>
-              <p class='destroy'> Delete</p>
             </div>
           </div>
         </div>

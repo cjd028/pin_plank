@@ -5,7 +5,7 @@
 <% end %>
 
 
-<%= link_to "Back to main", root_path %>
+<%= link_to "Back to main", root_path, class: "btn btn-default"  %>
 
 <%= form_for :session, url: login_path do |form| %>
 <div class ="form-session">
@@ -22,7 +22,7 @@
 </div>
 <% end %>
 
-<%= link_to "Sign in with Facebook", "/auth/facebook" %>
+<%= link_to "Sign in with Facebook", "/auth/facebook", class: "btn btn-default"  %>
 
 
 

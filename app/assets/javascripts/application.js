@@ -10,17 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
 
 $(document).ready(function(){
 
-  $('.destroy').on('click', function(){
+  $('.destroy').on('click', function(e){
+    e.preventDefault()
     if(confirm("Are you sure?")){
      $.ajax({
-      url: '/pins/' + this.parentElement.id,
-      type: 'DESTROY',
+      url: e.target.href,
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      method: 'DELETE',
       success: function(r){
+        console.log(r.status)
+        $(e.target).parent().parent().remove()
      }  
    });
     } 

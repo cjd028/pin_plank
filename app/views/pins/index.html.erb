@@ -1,7 +1,7 @@
 
 <h1>User Page</h1>
 
-<table>
+<table id="pins">
   
   <%if Pin.find_by_user_id(current_user.id).nil?%>
     <p> You have no postings </p>
@@ -22,25 +22,28 @@
 
       <tr>
 
-        <th>
-        <%= link_to p.title, p %>
-       
-        </th>
+        <td>
+          <%= link_to p.title, p %>
+        </td>
 
-        <th>
-        <%= link_to image_tag p.image.url(:medium), method: :pin %>  
-        </th> 
+        <td>
+          <%= link_to image_tag p.image.url(:medium), method: :Pin %>  
+        </td> 
       
-        <th>
-        <%= p.description %>
-        </th>
+        <td>
+          <%= p.description %>
+        </td>
+
+        <td> 
+          <%=link_to "Delete", pin_path(p), class: "destroy" %>
+        </td>
 
       </tr>
 
    <% end %>
 
-    <p><%= link_to "New Pin", new_pin_path %></p>
-    <p><%= link_to "Sign Out", logout_path, method: :delete %></p>
+    <p><%= link_to "New Pin", new_pin_path, class: "btn btn-default" %></p>
+    <p><%= link_to "Sign Out", logout_path, class: "btn btn-default", method: :delete %></p>
 
 </table>
 

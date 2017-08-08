@@ -16,3 +16,19 @@
   
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#pins td,th {
+  padding: 10px;
+   width:500px;
+    margin: auto;
+    border: 3px solid #2173ad;
+    text-align: center
+}
+
+#pins th {
+  padding: 2px;
+   width:250px;
+    margin: auto;
+    border: 3px solid #2173ad;
+    text-align: center
+}    
