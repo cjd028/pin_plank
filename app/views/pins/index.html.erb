@@ -5,10 +5,9 @@
   
   <%if Pin.find_by_user_id(current_user.id).nil?%>
     <p> You have no postings </p>
-    <p><%= link_to "New Pin", new_pin_path %></p>
-    <p><%= link_to "Sign Out", logout_path, method: :delete %></p>
+    <p><%= link_to "New Pin", new_pin_path, class: "btn btn-default" %></p>
+    <p><%= link_to "Sign Out", logout_path, class: "btn btn-default", method: :delete %></p>
     
-
   <%else%>
 
      <tr>
